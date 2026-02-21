@@ -1,0 +1,342 @@
+---
+import Page from '../../layouts/Page.astro';
+import { COMPANY } from '../../consts';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Formación Empresarial en Competencias Digitales - Castellón",
+  "description": "Programas de formación empresarial en competencias digitales, herramientas digitales y transformación digital para pymes y autónomos en Onda y Castellón.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": COMPANY.name,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Onda",
+      "addressRegion": "Castellón",
+      "addressCountry": "ES"
+    }
+  },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Castellón" },
+  "serviceType": "Formación Empresarial Digital"
+};
+---
+
+<Page
+  title="Formación Empresarial en Competencias Digitales en Castellón | DigiON"
+  description="Formación a medida en competencias digitales para empresas en Onda y Castellón. Cursos de herramientas digitales, ciberseguridad, Excel avanzado y más. Bonificable con FUNDAE."
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: "Formación Empresarial" },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} slot="head" />
+
+  <main class="service-page">
+    <section class="service-hero hero-yellow">
+      <div class="service-hero-inner">
+        <div class="service-hero-text">
+          <span class="service-badge yellow-badge">🎓 Formación Empresarial</span>
+          <h1>Capacita a tu equipo en <span class="text-yellow">competencias digitales</span></h1>
+          <p>
+            La mejor inversión que puede hacer una empresa es en las personas que la forman.
+            En DigiON diseñamos programas de formación prácticos y adaptados a las necesidades
+            reales de tu negocio en Onda y Castellón.
+          </p>
+          <div class="hero-btns">
+            <a href="/contacto" class="btn btn-yellow">Consultar programas</a>
+            <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`} class="btn btn-outline-yellow">
+              Llamar: {COMPANY.phoneDisplay}
+            </a>
+          </div>
+          <p class="fundae-note">
+            ✅ Formación bonificable a través de <strong>FUNDAE</strong> (Fundación Estatal para la Formación en el Empleo)
+          </p>
+        </div>
+        <div class="service-hero-icon" aria-hidden="true">🎓</div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-inner">
+        <h2>Áreas de formación</h2>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-cat">Productividad</div>
+            <h3>Microsoft 365 y Google Workspace</h3>
+            <p>Teams, Outlook, SharePoint, Drive, Meet, Docs. Optimiza la colaboración y productividad de tu equipo.</p>
+            <div class="course-meta">
+              <span>🕐 8-16h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-cat">Seguridad</div>
+            <h3>Ciberseguridad para empleados</h3>
+            <p>Phishing, contraseñas seguras, uso seguro del correo y dispositivos. El primer cortafuegos es el factor humano.</p>
+            <div class="course-meta">
+              <span>🕐 4-8h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-cat">Análisis de datos</div>
+            <h3>Excel y hojas de cálculo avanzado</h3>
+            <p>Tablas dinámicas, fórmulas avanzadas, Power Query, macros básicas. Para equipos de administración y gestión.</p>
+            <div class="course-meta">
+              <span>🕐 12-20h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-cat">Marketing</div>
+            <h3>Marketing digital y redes sociales</h3>
+            <p>Estrategia en redes sociales, publicidad en Meta y Google, email marketing, analítica web básica.</p>
+            <div class="course-meta">
+              <span>🕐 16-24h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-cat">Legal</div>
+            <h3>Protección de datos para empleados</h3>
+            <p>RGPD aplicado al puesto de trabajo. Obligaciones, derechos de los interesados y buenas prácticas.</p>
+            <div class="course-meta">
+              <span>🕐 4-8h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+          <div class="course-card">
+            <div class="course-cat">Liderazgo digital</div>
+            <h3>Transformación digital para directivos</h3>
+            <p>Visión estratégica digital, gestión del cambio, cultura digital y toma de decisiones basada en datos.</p>
+            <div class="course-meta">
+              <span>🕐 8-16h</span>
+              <span>📍 Presencial / Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section bg-light">
+      <div class="service-inner">
+        <h2>¿Por qué elegir la formación de DigiON?</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🎯</div>
+            <h3>100% personalizada</h3>
+            <p>Adaptamos el contenido y los ejemplos a tu sector y a la realidad de tu empresa en Castellón.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💼</div>
+            <h3>Enfoque práctico</h3>
+            <p>Nada de teoría innecesaria. Nuestros formadores traen casos reales y ejercicios aplicables al día siguiente.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">💰</div>
+            <h3>Bonificable con FUNDAE</h3>
+            <p>La formación para empleados puede ser gratuita o muy económica gracias a las bonificaciones de la Seguridad Social.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📍</div>
+            <h3>Presencial en Onda</h3>
+            <p>Podemos impartir la formación en tus instalaciones o en espacios de formación en Onda y Castellón.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-cta yellow-cta">
+      <h2>Invierte en el talento digital de tu equipo</h2>
+      <p>Consulta nuestro catálogo completo de cursos o cuéntanos qué necesita tu empresa y diseñamos un programa a medida.</p>
+      <a href="/contacto" class="btn btn-dark">Solicitar información</a>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .service-page { width: 100%; }
+
+  .service-hero { padding: 5em 1.5em; }
+
+  .hero-yellow {
+    background: linear-gradient(135deg, #fefce8, #fef9c3);
+  }
+
+  .service-hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3em;
+    align-items: center;
+  }
+
+  .service-badge {
+    display: inline-block;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1em;
+  }
+
+  .yellow-badge {
+    background: #fff;
+    color: #713f12;
+    box-shadow: 0 2px 8px rgba(234, 179, 8, 20%);
+  }
+
+  .service-hero h1 { font-size: 2.3em; margin-bottom: 0.5em; }
+  .text-yellow { color: #ca8a04; }
+
+  .service-hero p {
+    color: #374151;
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  .hero-btns { display: flex; gap: 1em; flex-wrap: wrap; margin-bottom: 1.5em; }
+
+  .btn-yellow {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: #ca8a04;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-yellow:hover { background: #92400e; color: #fff; text-decoration: none; }
+
+  .btn-outline-yellow {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: transparent;
+    color: #92400e;
+    border: 2px solid #ca8a04;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-yellow:hover { background: #ca8a04; color: #fff; text-decoration: none; }
+
+  .fundae-note {
+    font-size: 0.875rem;
+    color: #374151;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.75em 1em;
+    display: inline-block;
+    margin: 0;
+  }
+
+  .service-hero-icon { font-size: 8rem; opacity: 0.8; }
+
+  .service-section { padding: 4em 1.5em; }
+  .bg-light { background: #f8fafc; }
+
+  .service-inner { max-width: 1000px; margin: 0 auto; }
+
+  .service-inner h2 { font-size: 1.8em; margin-bottom: 1.5em; }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+  }
+
+  .course-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.75em;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .course-cat {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ca8a04;
+    font-weight: 700;
+  }
+
+  .course-card h3 { font-size: 1rem; color: rgb(15, 18, 25); margin: 0; }
+
+  .course-card p { font-size: 0.875rem; color: #6b7280; margin: 0; line-height: 1.5; flex: 1; }
+
+  .course-meta {
+    display: flex;
+    gap: 1em;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-top: 0.5em;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+  }
+
+  .why-item {
+    text-align: center;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .why-icon { font-size: 2.5rem; margin-bottom: 0.75em; }
+
+  .why-item h3 { font-size: 1rem; margin-bottom: 0.4em; }
+
+  .why-item p { font-size: 0.875rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+  .service-cta { text-align: center; padding: 5em 1.5em; }
+
+  .yellow-cta { background: linear-gradient(135deg, #78350f, #92400e); color: #fff; }
+
+  .yellow-cta h2 { color: #fff; font-size: 2em; margin-bottom: 0.75em; }
+
+  .yellow-cta p { color: #fde68a; max-width: 600px; margin: 0 auto 2em; }
+
+  .btn-dark {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: #fff;
+    color: #78350f;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .btn-dark:hover { opacity: 0.9; text-decoration: none; color: #78350f; }
+
+  @media (max-width: 768px) {
+    .service-hero-inner { grid-template-columns: 1fr; }
+    .service-hero-icon { display: none; }
+    .service-hero h1 { font-size: 1.8em; }
+    .courses-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .courses-grid, .why-grid { grid-template-columns: 1fr; }
+  }
+</style>

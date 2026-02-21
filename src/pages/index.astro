@@ -2,49 +2,735 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, COMPANY, SERVICES } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+
+    <main>
+      <!-- ===== HERO ===== -->
+      <section class="hero">
+        <div class="hero-content">
+          <span class="badge-local">Onda · Castellón · Comunitat Valenciana</span>
+          <h1>Impulsa la <span class="highlight">transformación digital</span> de tu empresa</h1>
+          <p class="hero-desc">
+            Somos <strong>DigiON</strong>, tu consultora de confianza en Onda (Castellón).
+            Ayudamos a pymes y autónomos a digitalizarse, proteger su información,
+            formarse y acceder a subvenciones como el <strong>Kit Digital</strong>.
+          </p>
+          <div class="hero-actions">
+            <a href="/servicios" class="btn btn-primary">Nuestros servicios</a>
+            <a href="/contacto" class="btn btn-outline">Pedir asesoramiento gratuito</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item">
+              <strong>+50</strong>
+              <span>empresas asesoradas</span>
+            </div>
+            <div class="trust-item">
+              <strong>100%</strong>
+              <span>local en Castellón</span>
+            </div>
+            <div class="trust-item">
+              <strong>Kit Digital</strong>
+              <span>agente digitalizador</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card-stack">
+            <div class="hero-card hc-1">
+              <span>💻</span>
+              <span>Digitalización</span>
+            </div>
+            <div class="hero-card hc-2">
+              <span>🔒</span>
+              <span>Protección de datos</span>
+            </div>
+            <div class="hero-card hc-3">
+              <span>🎓</span>
+              <span>Formación</span>
+            </div>
+            <div class="hero-card hc-4">
+              <span>📋</span>
+              <span>Subvenciones</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section class="services-section">
+        <div class="section-header">
+          <h2>Nuestros servicios en Onda, Castellón</h2>
+          <p>Soluciones digitales a medida para empresas locales</p>
+        </div>
+        <div class="services-grid">
+          {SERVICES.map((service) => (
+            <a href={service.href} class="service-card">
+              <div class="service-icon">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.shortDesc}</p>
+              <span class="service-link">Saber más →</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- ===== WHY US ===== -->
+      <section class="why-section">
+        <div class="why-inner">
+          <div class="why-text">
+            <h2>¿Por qué elegir <span class="text-accent">DigiON</span>?</h2>
+            <p>
+              Somos una consultora nacida en Onda con profundo conocimiento del tejido empresarial
+              de la Comunitat Valenciana. Entendemos los retos reales de las pymes locales y
+              ofrecemos soluciones prácticas, sin tecnicismos.
+            </p>
+            <ul class="why-list">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Trato cercano</strong> — Acceso directo a tu consultor, sin intermediarios
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Expertise local</strong> — Conocemos las ayudas autonómicas y estatales disponibles en Castellón
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Resultados medibles</strong> — Fijamos objetivos claros y hacemos seguimiento
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Cumplimiento legal</strong> — Garantizamos el cumplimiento del RGPD y normativa vigente
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <strong>Formación práctica</strong> — Capacitamos a tu equipo con formación aplicada al día a día
+              </li>
+            </ul>
+            <a href="/nosotros" class="btn btn-outline" style="margin-top: 1.5em; display: inline-block;">
+              Conoce al equipo
+            </a>
+          </div>
+          <div class="why-stats">
+            <div class="stat-card">
+              <div class="stat-number">+50</div>
+              <div class="stat-label">Empresas asesoradas en Castellón</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">€500K+</div>
+              <div class="stat-label">En subvenciones gestionadas</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Cumplimiento RGPD garantizado</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">+200h</div>
+              <div class="stat-label">De formación impartida</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== KIT DIGITAL BANNER ===== -->
+      <section class="kitdigital-banner">
+        <div class="kitdigital-inner">
+          <div class="kitdigital-text">
+            <span class="badge badge-green">Kit Digital 2025</span>
+            <h2>¿Sabes que tu empresa puede recibir hasta <strong>12.000€</strong> para digitalizarse?</h2>
+            <p>
+              El programa Kit Digital del Gobierno de España ofrece ayudas a pymes y autónomos
+              para adoptar soluciones digitales. En DigiON somos agentes digitalizadores
+              certificados y te guiamos en todo el proceso desde Onda.
+            </p>
+          </div>
+          <div class="kitdigital-cta">
+            <a href="/servicios/subvenciones" class="btn btn-cta">
+              Solicitar asesoramiento gratuito
+            </a>
+            <p class="kitdigital-note">Sin compromiso · Respuesta en 24h</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BLOG ===== -->
+      {posts.length > 0 && (
+        <section class="blog-section">
+          <div class="section-header">
+            <h2>Últimos artículos del blog</h2>
+            <p>Consejos y novedades sobre digitalización empresarial</p>
+          </div>
+          <div class="blog-grid">
+            {posts.map((post) => (
+              <article class="blog-card">
+                {post.data.heroImage && (
+                  <a href={`/blog/${post.slug}`}>
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      width="400"
+                      height="200"
+                      loading="lazy"
+                    />
+                  </a>
+                )}
+                <div class="blog-card-body">
+                  <p class="blog-date"><FormattedDate date={post.data.pubDate} /></p>
+                  <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
+                  <p class="blog-desc">{post.data.description}</p>
+                  <a href={`/blog/${post.slug}`} class="read-more">Leer artículo →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div class="text-center" style="margin-top: 2em;">
+            <a href="/blog" class="btn btn-outline">Ver todos los artículos</a>
+          </div>
+        </section>
+      )}
+
+      <!-- ===== CONTACT CTA ===== -->
+      <section class="cta-section">
+        <h2>¿Listo para dar el salto digital?</h2>
+        <p>
+          Contáctanos hoy y recibe una primera consulta gratuita.<br />
+          Estamos en <strong>Onda, Castellón</strong> y atendemos a toda la Comunitat Valenciana.
+        </p>
+        <div class="cta-actions">
+          <a href="/contacto" class="btn btn-primary">Contactar ahora</a>
+          <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`} class="btn btn-outline">
+            Llamar: {COMPANY.phoneDisplay}
+          </a>
+        </div>
+        <div class="nap-footer">
+          <p>
+            <strong>{COMPANY.name}</strong> &bull;
+            {COMPANY.address.street}, {COMPANY.address.postalCode} {COMPANY.address.city}, {COMPANY.address.province} &bull;
+            <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phoneDisplay}</a> &bull;
+            <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
 </html>
+
+<style>
+  main {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5em 1.5em 4em;
+  }
+
+  .badge-local {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e3a8a;
+    padding: 0.35em 1em;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1em;
+  }
+
+  .hero h1 {
+    font-size: 2.8em;
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+  }
+
+  .highlight {
+    color: #1a56db;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: #374151;
+    max-width: 520px;
+    margin-bottom: 2em;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-bottom: 2.5em;
+  }
+
+  .hero-trust {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5em;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-item strong {
+    font-size: 1.5em;
+    color: #1a56db;
+    line-height: 1;
+  }
+
+  .trust-item span {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  /* Hero Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .hero-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(15, 18, 25, 10%);
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    text-align: center;
+    border: 1px solid #e0e7ff;
+    transition: transform 0.2s;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .hero-card span:first-child {
+    font-size: 2rem;
+  }
+
+  .hc-1 { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .hc-2 { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+  .hc-3 { background: linear-gradient(135deg, #fefce8, #fef9c3); }
+  .hc-4 { background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+
+  /* ===== SERVICES ===== */
+  .services-section {
+    background: #f8fafc;
+    padding: 5em 1.5em;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-header h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .section-header p {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2em 1.5em;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(15, 18, 25, 6%);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+    transition: all 0.2s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26, 86, 219, 15%);
+    border-color: #1a56db;
+    text-decoration: none;
+  }
+
+  .service-icon {
+    font-size: 2.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    color: #1e3a8a;
+    margin: 0;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
+
+  .service-link {
+    color: #1a56db;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  /* ===== WHY US ===== */
+  .why-section {
+    padding: 5em 1.5em;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+    align-items: start;
+  }
+
+  .why-text h2 {
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .why-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5em 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .why-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75em;
+    line-height: 1.5;
+  }
+
+  .why-list li svg {
+    flex-shrink: 0;
+    margin-top: 0.2em;
+  }
+
+  .why-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+  }
+
+  .stat-card {
+    background: #eff6ff;
+    border-radius: 12px;
+    padding: 1.5em;
+    text-align: center;
+    border: 1px solid #dbeafe;
+  }
+
+  .stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a56db;
+    line-height: 1;
+    margin-bottom: 0.25em;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: #374151;
+  }
+
+  /* ===== KIT DIGITAL ===== */
+  .kitdigital-banner {
+    background: linear-gradient(135deg, #1e3a8a, #1a56db);
+    color: #fff;
+    padding: 4em 1.5em;
+  }
+
+  .kitdigital-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3em;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .kitdigital-text .badge {
+    margin-bottom: 1em;
+  }
+
+  .kitdigital-text h2 {
+    color: #fff;
+    font-size: 1.8em;
+    margin-bottom: 0.75em;
+  }
+
+  .kitdigital-text h2 strong {
+    color: #fbbf24;
+  }
+
+  .kitdigital-text p {
+    color: #bfdbfe;
+    max-width: 600px;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .kitdigital-cta {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .kitdigital-note {
+    color: #93c5fd;
+    font-size: 0.8rem;
+    margin-top: 0.75em;
+  }
+
+  /* ===== BLOG ===== */
+  .blog-section {
+    padding: 5em 1.5em;
+    background: #f8fafc;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(15, 18, 25, 6%);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+  }
+
+  .blog-card-body {
+    padding: 1.5em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-date {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0 0 0.5em;
+  }
+
+  .blog-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.75em;
+  }
+
+  .blog-card h3 a {
+    color: rgb(15, 18, 25);
+    text-decoration: none;
+  }
+
+  .blog-card h3 a:hover {
+    color: #1a56db;
+  }
+
+  .blog-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    flex: 1;
+    margin: 0 0 1em;
+  }
+
+  .read-more {
+    color: #1a56db;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* ===== CTA SECTION ===== */
+  .cta-section {
+    text-align: center;
+    padding: 5em 1.5em;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .cta-section > p {
+    color: #374151;
+    margin-bottom: 2em;
+    font-size: 1.05rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+  }
+
+  .nap-footer {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5em;
+  }
+
+  .nap-footer p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .nap-footer a {
+    color: #1a56db;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 3em 1.5em;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2em;
+    }
+
+    .hero-desc {
+      margin: 0 auto 2em;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-trust {
+      justify-content: center;
+    }
+
+    .hero-visual {
+      display: none;
+    }
+
+    .why-inner {
+      grid-template-columns: 1fr;
+      gap: 2em;
+    }
+
+    .kitdigital-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .why-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

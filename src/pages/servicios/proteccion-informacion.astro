@@ -1,0 +1,373 @@
+---
+import Page from '../../layouts/Page.astro';
+import { COMPANY } from '../../consts';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Protección de la Información y RGPD en Castellón",
+  "description": "Servicios de cumplimiento del RGPD, protección de datos, ciberseguridad y gestión de la seguridad de la información para empresas en Onda y Castellón.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": COMPANY.name,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Onda",
+      "addressRegion": "Castellón",
+      "addressCountry": "ES"
+    }
+  },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Castellón" },
+  "serviceType": "Protección de Datos y Ciberseguridad"
+};
+---
+
+<Page
+  title="Protección de la Información y RGPD en Onda, Castellón | DigiON"
+  description="Cumplimiento del RGPD, protección de datos personales y ciberseguridad para pymes en Onda y Castellón. Evita multas y protege la información de tu empresa con DigiON."
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: "Protección de la Información" },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} slot="head" />
+
+  <main class="service-page">
+    <section class="service-hero hero-green">
+      <div class="service-hero-inner">
+        <div class="service-hero-text">
+          <span class="service-badge green-badge">🔒 Protección de la Información</span>
+          <h1>Protege los datos de tu empresa y cumple el <span class="text-green">RGPD</span> en Castellón</h1>
+          <p>
+            El incumplimiento del Reglamento General de Protección de Datos puede suponer multas de
+            hasta 20 millones de euros. En DigiON te ayudamos a cumplir la normativa y a
+            proteger los datos de tu empresa con un enfoque práctico y adaptado a pymes.
+          </p>
+          <div class="hero-btns">
+            <a href="/contacto" class="btn btn-green">Solicitar auditoría gratuita</a>
+            <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`} class="btn btn-outline">
+              Llamar: {COMPANY.phoneDisplay}
+            </a>
+          </div>
+        </div>
+        <div class="service-hero-icon" aria-hidden="true">🔒</div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="service-inner">
+        <div class="alert-box">
+          <strong>⚠️ ¿Sabías que...</strong> El 60% de las pymes españolas no cumple correctamente el RGPD
+          y se expone a sanciones de la AEPD. ¿Es tu empresa una de ellas?
+        </div>
+        <h2>¿Qué servicios de protección de datos ofrecemos?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Auditoría de cumplimiento RGPD</h3>
+            <p>Analizamos el estado actual de tu empresa en materia de protección de datos e identificamos las brechas de cumplimiento.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>Adecuación al RGPD</h3>
+            <p>Elaboramos todos los documentos obligatorios: registro de actividades, contratos de encargo, políticas de privacidad y más.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👤</div>
+            <h3>Delegado de Protección de Datos (DPD)</h3>
+            <p>Ofrecemos el servicio de DPD externo para las empresas que están obligadas a tenerlo o que quieran una supervisión continua.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Ciberseguridad para pymes</h3>
+            <p>Evaluamos los riesgos de seguridad informática y aplicamos medidas técnicas y organizativas para proteger tu información.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Formación en protección de datos</h3>
+            <p>Formamos a tu equipo para que conozca sus obligaciones y aplique buenas prácticas en el tratamiento de datos personales.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚨</div>
+            <h3>Gestión de brechas de seguridad</h3>
+            <p>Te asesoramos en caso de incidente de seguridad: notificación a la AEPD, comunicación a los afectados y medidas correctoras.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section bg-light">
+      <div class="service-inner">
+        <h2>¿Tu empresa necesita adaptarse al RGPD?</h2>
+        <p>La respuesta es sí si tratas datos de personas: clientes, empleados, proveedores... Cualquier empresa que opere en España debe cumplir con el RGPD y la Ley Orgánica de Protección de Datos (LOPDGDD).</p>
+        <div class="checklist">
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Tienes empleados o gestionas datos de empleados</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Almacenas datos de clientes o proveedores</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Tienes una web con formulario de contacto o cookies</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Envías newsletters o comunicaciones comerciales</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Usas cámaras de videovigilancia en tus instalaciones</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Trabajas con datos de salud, menores u otras categorías especiales</span>
+          </div>
+        </div>
+        <p style="margin-top: 1.5em;">Si alguno de estos puntos describe tu empresa, <strong>necesitas cumplir el RGPD</strong>. Contáctanos para una primera consulta gratuita.</p>
+      </div>
+    </section>
+
+    <section class="service-cta green-cta">
+      <h2>Protege tu empresa hoy</h2>
+      <p>No esperes a una inspección o sanción de la AEPD. Contacta con DigiON en Onda y pon en orden la protección de datos de tu empresa.</p>
+      <a href="/contacto" class="btn btn-white">Solicitar auditoría gratuita</a>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .service-page { width: 100%; }
+
+  .service-hero {
+    padding: 5em 1.5em;
+  }
+
+  .hero-green {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  }
+
+  .service-hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3em;
+    align-items: center;
+  }
+
+  .service-badge {
+    display: inline-block;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1em;
+  }
+
+  .green-badge {
+    background: #fff;
+    color: #065f46;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 15%);
+  }
+
+  .service-hero h1 {
+    font-size: 2.3em;
+    margin-bottom: 0.5em;
+  }
+
+  .text-green { color: #059669; }
+
+  .service-hero p {
+    color: #374151;
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 2em;
+    line-height: 1.7;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .btn-green {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: #059669;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-green:hover {
+    background: #065f46;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: transparent;
+    color: #059669;
+    border: 2px solid #059669;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: #059669;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .btn-white {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: #fff;
+    color: #065f46;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-white:hover {
+    opacity: 0.9;
+    text-decoration: none;
+    color: #065f46;
+  }
+
+  .service-hero-icon {
+    font-size: 8rem;
+    opacity: 0.8;
+  }
+
+  .service-section { padding: 4em 1.5em; }
+  .bg-light { background: #f8fafc; }
+
+  .service-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .service-inner h2 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+  }
+
+  .service-inner p {
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1em;
+  }
+
+  .alert-box {
+    background: #fef9c3;
+    border: 1px solid #fde047;
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    color: #713f12;
+    font-size: 0.95rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.75em;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+  }
+
+  .feature-icon { font-size: 2rem; margin-bottom: 0.75em; }
+
+  .feature-card h3 {
+    font-size: 1.05rem;
+    color: #065f46;
+    margin-bottom: 0.5em;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .checklist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75em;
+    margin-top: 1.5em;
+  }
+
+  .check-item {
+    display: flex;
+    gap: 0.75em;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #374151;
+  }
+
+  .check-icon {
+    color: #059669;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .service-cta {
+    text-align: center;
+    padding: 5em 1.5em;
+  }
+
+  .green-cta {
+    background: linear-gradient(135deg, #065f46, #059669);
+    color: #fff;
+  }
+
+  .green-cta h2 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .green-cta p {
+    color: #a7f3d0;
+    max-width: 600px;
+    margin: 0 auto 2em;
+  }
+
+  @media (max-width: 768px) {
+    .service-hero-inner { grid-template-columns: 1fr; }
+    .service-hero-icon { display: none; }
+    .service-hero h1 { font-size: 1.8em; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .checklist { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+</style>

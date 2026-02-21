@@ -1,0 +1,366 @@
+---
+import Page from '../layouts/Page.astro';
+import { COMPANY } from '../consts';
+---
+
+<Page
+  title="Sobre DigiON | Consultora Digital en Onda, Castellón"
+  description="Conoce a DigiON, la consultora de transformación digital, formación y subvenciones nacida en Onda, Castellón. Nuestro equipo local te ayuda a digitalizar tu empresa."
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Nosotros" },
+  ]}
+>
+  <main class="about-page">
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <span class="location-tag">📍 Onda, Castellón</span>
+        <h1>Somos <span class="text-accent">DigiON</span>, tu consultora digital de confianza</h1>
+        <p>
+          Nacimos en Onda con una misión clara: ayudar a las pymes y autónomos de Castellón
+          a aprovechar las oportunidades que ofrece la digitalización, sin tecnicismos,
+          con un acompañamiento cercano y resultados reales.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="about-section">
+      <div class="about-inner">
+        <div class="mission-grid">
+          <div class="mission-card accent-blue">
+            <div class="mission-icon">🎯</div>
+            <h2>Misión</h2>
+            <p>
+              Democratizar el acceso a la tecnología y la digitalización para pymes y autónomos
+              de la Comunitat Valenciana, con soluciones prácticas, asequibles y adaptadas a cada negocio.
+            </p>
+          </div>
+          <div class="mission-card accent-green">
+            <div class="mission-icon">👁️</div>
+            <h2>Visión</h2>
+            <p>
+              Convertirnos en el referente de consultoría digital en Castellón, acompañando
+              a cientos de empresas locales en su transformación hacia un futuro más eficiente
+              y competitivo.
+            </p>
+          </div>
+          <div class="mission-card accent-orange">
+            <div class="mission-icon">💎</div>
+            <h2>Valores</h2>
+            <p>
+              Proximidad, honestidad, orientación a resultados y compromiso con el tejido empresarial
+              local. Somos de aquí y trabajamos para empresas de aquí.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="about-section bg-light">
+      <div class="about-inner story-grid">
+        <div class="story-text">
+          <h2>Nuestra historia</h2>
+          <p>
+            DigiON nació en Onda ante la necesidad que detectamos en el tejido empresarial local:
+            muchas pymes sabían que necesitaban digitalizarse, pero no sabían por dónde empezar,
+            ni con quién contar. Los grandes consultores estaban lejos, los pequeños generalistas
+            no tenían la especialización necesaria.
+          </p>
+          <p>
+            Así decidimos crear una consultora con ADN local pero con capacidades y metodologías
+            de primer nivel. Gente de Castellón, para empresas de Castellón.
+          </p>
+          <p>
+            Hoy ayudamos a empresas de Onda, Castellón, Vila-real, Burriana y toda la provincia
+            a transformar sus negocios con tecnología, a proteger su información,
+            a formar a sus equipos y a acceder a las subvenciones que les corresponden.
+          </p>
+        </div>
+        <div class="story-facts">
+          <div class="fact">
+            <div class="fact-number">2024</div>
+            <div class="fact-label">Año de fundación en Onda</div>
+          </div>
+          <div class="fact">
+            <div class="fact-number">+50</div>
+            <div class="fact-label">Empresas asesoradas</div>
+          </div>
+          <div class="fact">
+            <div class="fact-number">4</div>
+            <div class="fact-label">Áreas de especialización</div>
+          </div>
+          <div class="fact">
+            <div class="fact-number">100%</div>
+            <div class="fact-label">Compromiso local</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Local -->
+    <section class="about-section">
+      <div class="about-inner">
+        <h2>Ventajas de trabajar con una consultora local en Onda</h2>
+        <div class="local-grid">
+          <div class="local-item">
+            <span class="local-icon">🤝</span>
+            <h3>Reuniones presenciales</h3>
+            <p>Podemos reunirnos en tus instalaciones o en nuestra oficina en Onda, sin desplazamientos largos ni videollamadas impersonales.</p>
+          </div>
+          <div class="local-item">
+            <span class="local-icon">🏭</span>
+            <h3>Conocemos tu sector</h3>
+            <p>Castellón es líder en cerámica, azulejos y otros sectores industriales. Entendemos la realidad de las pymes de la provincia.</p>
+          </div>
+          <div class="local-item">
+            <span class="local-icon">📋</span>
+            <h3>Subvenciones autonómicas</h3>
+            <p>Conocemos en detalle las ayudas del IVACE, la Generalitat Valenciana y la Diputación de Castellón disponibles para tu empresa.</p>
+          </div>
+          <div class="local-item">
+            <span class="local-icon">⚡</span>
+            <h3>Respuesta rápida</h3>
+            <p>Al estar en Onda, podemos atender urgencias y reaccionar rápidamente ante cualquier incidencia en tu empresa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="about-section bg-light">
+      <div class="about-inner">
+        <h2>Certificaciones y acreditaciones</h2>
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-icon">🏆</div>
+            <h3>Agente Digitalizador Kit Digital</h3>
+            <p>Adheridos al programa Kit Digital del Ministerio de Asuntos Económicos para ayudarte a obtener tu bono.</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🔒</div>
+            <h3>Especialistas en RGPD</h3>
+            <p>Formación certificada en Protección de Datos y experiencia en adecuación al RGPD para empresas.</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🎓</div>
+            <h3>Formadores acreditados FUNDAE</h3>
+            <p>Impartimos formación bonificable a través de FUNDAE para empresas con trabajadores en activo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <h2>¿Hablamos?</h2>
+      <p>
+        Cuéntanos qué necesita tu empresa. La primera consulta es gratuita y sin compromiso.
+        Estamos en {COMPANY.address.street}, {COMPANY.address.city}.
+      </p>
+      <div class="cta-btns">
+        <a href="/contacto" class="btn btn-primary">Contactar ahora</a>
+        <a href="/servicios" class="btn btn-outline">Ver servicios</a>
+      </div>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .about-page { width: 100%; }
+
+  .about-hero {
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    padding: 5em 1.5em;
+    text-align: center;
+  }
+
+  .about-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .location-tag {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #dbeafe;
+    color: #1e3a8a;
+    padding: 0.35em 1em;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1em;
+  }
+
+  .about-hero h1 { font-size: 2.5em; margin-bottom: 0.5em; }
+  .text-accent { color: #1a56db; }
+
+  .about-hero p {
+    color: #374151;
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .about-section { padding: 4em 1.5em; }
+  .bg-light { background: #f8fafc; }
+
+  .about-inner { max-width: 1000px; margin: 0 auto; }
+
+  .about-inner h2 { font-size: 1.8em; margin-bottom: 1.5em; }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+  }
+
+  .mission-card {
+    border-radius: 12px;
+    padding: 2em;
+    border: 1px solid transparent;
+  }
+
+  .accent-blue { background: #eff6ff; border-color: #dbeafe; }
+  .accent-green { background: #f0fdf4; border-color: #dcfce7; }
+  .accent-orange { background: #fff7ed; border-color: #ffedd5; }
+
+  .mission-icon { font-size: 2.5rem; margin-bottom: 0.75em; }
+
+  .mission-card h2 { font-size: 1.3em; margin-bottom: 0.5em; }
+
+  .mission-card p { color: #374151; font-size: 0.95rem; margin: 0; line-height: 1.6; }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+    align-items: start;
+  }
+
+  .story-text p { color: #374151; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1em; }
+
+  .story-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+  }
+
+  .fact {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5em;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+  }
+
+  .fact-number {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #1a56db;
+    line-height: 1;
+    margin-bottom: 0.25em;
+  }
+
+  .fact-label { font-size: 0.8rem; color: #6b7280; }
+
+  .local-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5em;
+  }
+
+  .local-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5em;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+  }
+
+  .local-icon { font-size: 2rem; display: block; margin-bottom: 0.75em; }
+
+  .local-item h3 { font-size: 1rem; margin-bottom: 0.4em; }
+
+  .local-item p { font-size: 0.875rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+  }
+
+  .cert-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2em;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+    text-align: center;
+  }
+
+  .cert-icon { font-size: 2.5rem; margin-bottom: 0.75em; }
+
+  .cert-card h3 { font-size: 1rem; margin-bottom: 0.4em; }
+
+  .cert-card p { font-size: 0.875rem; color: #6b7280; margin: 0; line-height: 1.5; }
+
+  .about-cta {
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    padding: 5em 1.5em;
+  }
+
+  .about-cta h2 { color: #fff; font-size: 2em; margin-bottom: 0.5em; }
+
+  .about-cta p { color: #bfdbfe; max-width: 600px; margin: 0 auto 2em; font-size: 1.05rem; }
+
+  .cta-btns { display: flex; gap: 1em; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: #1a56db;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: #1e3a8a; color: #fff; text-decoration: none; }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75em 1.75em;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .local-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .about-hero h1 { font-size: 2em; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr; gap: 2em; }
+    .certs-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .local-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,197 @@
+---
+import Page from '../../layouts/Page.astro';
+import { COMPANY, SERVICES } from '../../consts';
+---
+
+<Page
+  title="Servicios de Consultoría Digital en Onda, Castellón | DigiON"
+  description="Descubre los servicios de DigiON en Onda: transformación digital, protección de la información (RGPD), formación empresarial y gestión de subvenciones como el Kit Digital."
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios" },
+  ]}
+>
+  <main class="services-main">
+    <!-- Header -->
+    <section class="page-header">
+      <div class="page-header-inner">
+        <h1>Nuestros servicios en <span class="text-accent">Onda, Castellón</span></h1>
+        <p>
+          Soluciones digitales integrales para pymes y autónomos de Castellón.
+          Te acompañamos en cada etapa de tu transformación digital.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="services-detail">
+      <div class="services-inner">
+        {SERVICES.map((service, index) => (
+          <div class={`service-row ${index % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="service-visual">
+              <div class="service-big-icon">{service.icon}</div>
+            </div>
+            <div class="service-info">
+              <h2><a href={service.href}>{service.title}</a></h2>
+              <p>{service.shortDesc}</p>
+              <a href={service.href} class="btn btn-primary" style="font-size: 0.95rem; padding: 0.6em 1.5em;">
+                Más información
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="services-cta">
+      <h2>¿No sabes por dónde empezar?</h2>
+      <p>
+        Ofrecemos una primera consulta gratuita para analizar las necesidades de tu empresa
+        y recomendarte el camino más adecuado.
+      </p>
+      <a href="/contacto" class="btn btn-primary">Solicitar consulta gratuita</a>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .services-main {
+    width: 100%;
+  }
+
+  .page-header {
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    padding: 4em 1.5em;
+    text-align: center;
+  }
+
+  .page-header-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .page-header p {
+    font-size: 1.15rem;
+    color: #374151;
+    margin: 0;
+  }
+
+  .text-accent { color: #1a56db; }
+
+  .services-detail {
+    padding: 5em 1.5em;
+  }
+
+  .services-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3em;
+    align-items: center;
+  }
+
+  .service-row.reverse {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .service-row.reverse .service-visual {
+    order: 2;
+  }
+
+  .service-row.reverse .service-info {
+    order: 1;
+  }
+
+  .service-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .service-big-icon {
+    font-size: 7rem;
+    background: #f0f4ff;
+    border-radius: 24px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(26, 86, 219, 10%);
+  }
+
+  .service-info h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+  }
+
+  .service-info h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .service-info h2 a:hover {
+    color: #1a56db;
+  }
+
+  .service-info p {
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+  }
+
+  .services-cta {
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    padding: 5em 1.5em;
+  }
+
+  .services-cta h2 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .services-cta p {
+    color: #bfdbfe;
+    max-width: 600px;
+    margin: 0 auto 2em;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    .service-row,
+    .service-row.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .service-row.reverse .service-visual,
+    .service-row.reverse .service-info {
+      order: unset;
+    }
+
+    .service-big-icon {
+      font-size: 5rem;
+      width: 140px;
+      height: 140px;
+    }
+
+    .page-header h1 {
+      font-size: 1.8em;
+    }
+  }
+</style>

@@ -1,0 +1,374 @@
+---
+import Page from '../layouts/Page.astro';
+import { COMPANY } from '../consts';
+---
+
+<Page
+  title="Contacto | DigiON Consultoría Digital en Onda, Castellón"
+  description="Contacta con DigiON en Onda, Castellón. Primera consulta gratuita sobre transformación digital, protección de datos, formación o subvenciones Kit Digital. Tel: 964 000 000"
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Contacto" },
+  ]}
+>
+  <main class="contact-page">
+    <!-- Hero -->
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <h1>Hablemos sobre tu proyecto</h1>
+        <p>
+          La primera consulta es <strong>gratuita y sin compromiso</strong>.
+          Cuéntanos qué necesita tu empresa y te orientamos sobre la mejor solución.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Layout -->
+    <section class="contact-section">
+      <div class="contact-inner">
+        <!-- Form -->
+        <div class="contact-form-wrapper">
+          <h2>Envíanos un mensaje</h2>
+          <p>Te responderemos en menos de 24 horas en días laborables.</p>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre y apellidos *</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+              </div>
+              <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" name="email" required placeholder="tu@empresa.com" />
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="600 000 000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio">
+                <option value="">— Selecciona un servicio —</option>
+                <option value="transformacion-digital">Transformación Digital</option>
+                <option value="proteccion-informacion">Protección de la Información / RGPD</option>
+                <option value="formacion">Formación Empresarial</option>
+                <option value="subvenciones">Gestión de Subvenciones / Kit Digital</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" required rows="5" placeholder="Cuéntanos sobre tu empresa y qué necesitas..."></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="privacidad" required />
+                He leído y acepto la
+                <a href="/legal/privacidad">Política de Privacidad</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Información de contacto</h2>
+
+          <div class="info-card">
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <strong>Dirección</strong>
+                <address>
+                  {COMPANY.address.street}<br />
+                  {COMPANY.address.postalCode} {COMPANY.address.city}<br />
+                  {COMPANY.address.province}, {COMPANY.address.region}
+                </address>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div>
+                <strong>Teléfono</strong>
+                <p><a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}>{COMPANY.phoneDisplay}</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div>
+                <strong>Email</strong>
+                <p><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">🕐</div>
+              <div>
+                <strong>Horario de atención</strong>
+                {COMPANY.hours.map(h => (
+                  <p>{h.days}: {h.hours}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="map-placeholder">
+            <div class="map-inner">
+              <div class="map-pin">📍</div>
+              <p>DigiON Consultoría</p>
+              <p class="map-address">{COMPANY.address.street}, {COMPANY.address.city}</p>
+              <a
+                href={`https://maps.google.com/?q=${COMPANY.address.street},+${COMPANY.address.city},+${COMPANY.address.province}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="map-link"
+              >
+                Ver en Google Maps →
+              </a>
+            </div>
+          </div>
+
+          <!-- Service areas -->
+          <div class="service-areas">
+            <h3>Zona de atención</h3>
+            <p>Atendemos presencialmente en <strong>Onda</strong> y alrededores, y de forma remota a toda la <strong>Comunitat Valenciana</strong>:</p>
+            <div class="areas-tags">
+              <span>Onda</span>
+              <span>Castellón de la Plana</span>
+              <span>Vila-real</span>
+              <span>Burriana</span>
+              <span>Nules</span>
+              <span>Vall d'Uixó</span>
+              <span>L'Alcora</span>
+              <span>Toda la provincia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .contact-page { width: 100%; }
+
+  .contact-hero {
+    background: linear-gradient(135deg, #eff6ff, #f0f4ff);
+    padding: 4em 1.5em;
+    text-align: center;
+  }
+
+  .contact-hero-inner { max-width: 600px; margin: 0 auto; }
+
+  .contact-hero h1 { font-size: 2.2em; margin-bottom: 0.5em; }
+
+  .contact-hero p { color: #374151; font-size: 1.05rem; margin: 0; }
+
+  .contact-section { padding: 4em 1.5em; }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4em;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .contact-form-wrapper h2 { font-size: 1.6em; margin-bottom: 0.25em; }
+
+  .contact-form-wrapper > p { color: #6b7280; font-size: 0.9rem; margin-bottom: 2em; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 0; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25em;
+  }
+
+  .form-group {
+    margin-bottom: 1.25em;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.4em;
+    color: rgb(34, 41, 57);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.7em 1em;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    color: rgb(34, 41, 57);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #1a56db;
+  }
+
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  .checkbox-group { margin-bottom: 1.5em; }
+
+  .checkbox-label {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0.5em;
+    font-weight: 400 !important;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .checkbox-label input { flex-shrink: 0; margin-top: 0.2em; }
+
+  .checkbox-label a { color: #1a56db; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85em 2em;
+    background: #1a56db;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: #1e3a8a; }
+
+  .btn-full { width: 100%; text-align: center; }
+
+  /* Info side */
+  .contact-info h2 { font-size: 1.6em; margin-bottom: 1.5em; }
+
+  .info-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.75em;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 1.5em;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+    padding-bottom: 1.25em;
+    margin-bottom: 1.25em;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .info-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+
+  .info-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+  .info-item strong { display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; margin-bottom: 0.25em; }
+
+  .info-item p, .info-item address {
+    font-size: 0.9rem;
+    color: rgb(34, 41, 57);
+    margin: 0;
+    font-style: normal;
+    line-height: 1.5;
+  }
+
+  .info-item a { color: #1a56db; text-decoration: none; }
+  .info-item a:hover { text-decoration: underline; }
+
+  .map-placeholder {
+    background: #e5e7eb;
+    border-radius: 12px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5em;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+  }
+
+  .map-inner {
+    text-align: center;
+    padding: 1em;
+  }
+
+  .map-pin { font-size: 2rem; margin-bottom: 0.5em; }
+
+  .map-inner p { margin: 0; font-size: 0.875rem; color: #374151; }
+
+  .map-address { color: #6b7280; }
+
+  .map-link {
+    display: inline-block;
+    margin-top: 0.75em;
+    color: #1a56db;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .service-areas h3 { font-size: 1rem; margin-bottom: 0.5em; }
+
+  .service-areas p { font-size: 0.875rem; color: #374151; margin-bottom: 0.75em; }
+
+  .areas-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .areas-tags span {
+    background: #eff6ff;
+    color: #1e3a8a;
+    padding: 0.25em 0.75em;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #dbeafe;
+  }
+
+  @media (max-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 3em; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .contact-hero h1 { font-size: 1.8em; }
+  }
+</style>

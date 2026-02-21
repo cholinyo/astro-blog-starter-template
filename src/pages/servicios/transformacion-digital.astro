@@ -1,0 +1,354 @@
+---
+import Page from '../../layouts/Page.astro';
+import { COMPANY } from '../../consts';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Transformación Digital para Pymes",
+  "description": "Servicio de consultoría de transformación digital para pymes y autónomos en Onda, Castellón. Digitalizamos tus procesos para mejorar la eficiencia y competitividad.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": COMPANY.name,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Onda",
+      "addressRegion": "Castellón",
+      "addressCountry": "ES"
+    }
+  },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Castellón" },
+  "serviceType": "Consultoría de Transformación Digital"
+};
+---
+
+<Page
+  title="Transformación Digital para Pymes en Onda, Castellón | DigiON"
+  description="Impulsa la transformación digital de tu empresa en Onda. Digitalizamos procesos, implementamos herramientas cloud y mejoramos la eficiencia de tu negocio en Castellón."
+  breadcrumbs={[
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: "Transformación Digital" },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} slot="head" />
+
+  <main class="service-page">
+    <!-- Hero -->
+    <section class="service-hero">
+      <div class="service-hero-inner">
+        <div class="service-hero-text">
+          <span class="service-badge">💻 Transformación Digital</span>
+          <h1>Digitaliza tu empresa en <span class="text-accent">Onda y Castellón</span></h1>
+          <p>
+            La transformación digital ya no es opcional: es la clave para que tu pyme
+            compita en el mercado actual. En DigiON diseñamos una hoja de ruta digital
+            a medida para tu negocio en Onda.
+          </p>
+          <div class="hero-btns">
+            <a href="/contacto" class="btn btn-primary">Pedir diagnóstico gratuito</a>
+            <a href={`tel:${COMPANY.phone.replace(/\s/g, '')}`} class="btn btn-outline">
+              Llamar: {COMPANY.phoneDisplay}
+            </a>
+          </div>
+        </div>
+        <div class="service-hero-icon" aria-hidden="true">💻</div>
+      </div>
+    </section>
+
+    <!-- What is it -->
+    <section class="service-section">
+      <div class="service-inner">
+        <h2>¿Qué es la transformación digital?</h2>
+        <p>
+          La transformación digital es el proceso de integrar tecnología en todas las áreas de tu empresa
+          para mejorar radicalmente cómo operas y cómo ofreces valor a tus clientes. No se trata solo
+          de tener una web o usar el correo electrónico: implica repensar procesos, herramientas y cultura
+          empresarial con un enfoque digital.
+        </p>
+        <p>
+          Para las pymes de Onda y Castellón, esto puede significar desde la automatización de facturación
+          hasta la implementación de un CRM, la migración a herramientas cloud o la creación de una
+          tienda online.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="service-section bg-light">
+      <div class="service-inner">
+        <h2>Nuestros servicios de transformación digital</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🗺️</div>
+            <h3>Diagnóstico y hoja de ruta digital</h3>
+            <p>Analizamos el estado digital de tu empresa y definimos un plan de acción prioritizado y con ROI medible.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">☁️</div>
+            <h3>Migración a herramientas cloud</h3>
+            <p>Implementamos soluciones en la nube (Microsoft 365, Google Workspace, ERPs) para mejorar la colaboración y reducir costes.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>Automatización de procesos</h3>
+            <p>Identificamos tareas repetitivas y las automatizamos para liberar tiempo de tu equipo y reducir errores.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛒</div>
+            <h3>Presencia digital y e-commerce</h3>
+            <p>Creamos o mejoramos tu web y tienda online para que puedas vender más allá de Onda y Castellón.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Analítica e inteligencia de negocio</h3>
+            <p>Implementamos dashboards y herramientas de análisis para que tomes decisiones basadas en datos reales.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>Integración de sistemas</h3>
+            <p>Conectamos tus herramientas existentes (ERP, CRM, contabilidad) para eliminar silos de información.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="service-section">
+      <div class="service-inner">
+        <h2>Cómo trabajamos contigo</h2>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Diagnóstico inicial gratuito</h3>
+              <p>Nos reunimos contigo (presencialmente en Onda o por videollamada) para entender tu negocio y sus necesidades digitales.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Plan personalizado</h3>
+              <p>Diseñamos una hoja de ruta con acciones concretas, plazos y presupuesto adaptado a tu empresa.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Implementación por fases</h3>
+              <p>Ejecutamos el plan fase a fase, minimizando el impacto en la operativa diaria y formando a tu equipo.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Seguimiento y mejora continua</h3>
+              <p>Medimos los resultados y ajustamos la estrategia para garantizar que obtienes el máximo retorno.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta">
+      <h2>Comienza tu transformación digital hoy</h2>
+      <p>Empresas de Onda, Castellón y toda la Comunitat Valenciana ya están digitalizándose con DigiON. ¿A qué esperas?</p>
+      <a href="/contacto" class="btn btn-cta">Solicitar diagnóstico gratuito</a>
+    </section>
+  </main>
+</Page>
+
+<style>
+  .service-page { width: 100%; }
+
+  .service-hero {
+    background: linear-gradient(135deg, #eff6ff 60%, #dbeafe);
+    padding: 5em 1.5em;
+  }
+
+  .service-hero-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3em;
+    align-items: center;
+  }
+
+  .service-badge {
+    display: inline-block;
+    background: #fff;
+    color: #1a56db;
+    padding: 0.4em 1em;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(26, 86, 219, 15%);
+  }
+
+  .service-hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .text-accent { color: #1a56db; }
+
+  .service-hero p {
+    color: #374151;
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin-bottom: 2em;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .service-hero-icon {
+    font-size: 8rem;
+    opacity: 0.8;
+  }
+
+  .service-section {
+    padding: 4em 1.5em;
+  }
+
+  .bg-light {
+    background: #f8fafc;
+  }
+
+  .service-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .service-inner h2 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+  }
+
+  .service-inner p {
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1em;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.75em;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(15, 18, 25, 5%);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75em;
+  }
+
+  .feature-card h3 {
+    font-size: 1.05rem;
+    color: #1e3a8a;
+    margin-bottom: 0.5em;
+  }
+
+  .feature-card p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 1.5em;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 44px;
+    height: 44px;
+    background: #1a56db;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25em;
+  }
+
+  .step-content p {
+    color: #374151;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .service-cta {
+    background: #1e3a8a;
+    color: #fff;
+    text-align: center;
+    padding: 5em 1.5em;
+  }
+
+  .service-cta h2 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 0.75em;
+  }
+
+  .service-cta p {
+    color: #bfdbfe;
+    max-width: 600px;
+    margin: 0 auto 2em;
+  }
+
+  @media (max-width: 768px) {
+    .service-hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .service-hero-icon {
+      display: none;
+    }
+
+    .service-hero h1 {
+      font-size: 1.8em;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

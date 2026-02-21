@@ -1,17 +1,114 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { COMPANY } from '../consts';
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noLocalSchema?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, image = '/og-image.jpg', type = 'website', noLocalSchema = false } = Astro.props;
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": COMPANY.name,
+  "description": "Consultoría especializada en transformación digital, protección de la información, formación empresarial y gestión de subvenciones en Onda, Castellón.",
+  "url": Astro.site?.toString(),
+  "telephone": COMPANY.phone,
+  "email": COMPANY.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": COMPANY.address.street,
+    "addressLocality": COMPANY.address.city,
+    "addressRegion": COMPANY.address.province,
+    "postalCode": COMPANY.address.postalCode,
+    "addressCountry": COMPANY.address.countryCode
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": COMPANY.geo.latitude,
+    "longitude": COMPANY.geo.longitude
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "10:00",
+      "closes": "13:00"
+    }
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Onda"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Castellón"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Comunitat Valenciana"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Consultoría Digital",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Transformación Digital",
+          "url": `${Astro.site}servicios/transformacion-digital`
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Protección de la Información y RGPD",
+          "url": `${Astro.site}servicios/proteccion-informacion`
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Formación Empresarial",
+          "url": `${Astro.site}servicios/formacion`
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Gestión de Subvenciones y Kit Digital",
+          "url": `${Astro.site}servicios/subvenciones`
+        }
+      }
+    ]
+  },
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Transferencia bancaria, tarjeta",
+  "foundingDate": "2024",
+  "knowsLanguage": ["es", "ca"],
+  "sameAs": [
+    COMPANY.social.linkedin
+  ].filter(Boolean)
+};
 ---
 
 <!-- Global Metadata -->
@@ -31,13 +128,22 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content="transformación digital Onda, consultoría digital Castellón, protección de datos Onda, Kit Digital Castellón, formación empresarial Castellón, subvenciones digitalización pymes Castellón, RGPD Castellón, DigiON" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="Spanish" />
+<meta name="geo.region" content="ES-CS" />
+<meta name="geo.placename" content="Onda, Castellón" />
+<meta name="geo.position" content="39.9625;-0.2717" />
+<meta name="ICBM" content="39.9625, -0.2717" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:site_name" content="DigiON Consultoría" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -45,3 +151,8 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Local Business Schema -->
+{!noLocalSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+)}
